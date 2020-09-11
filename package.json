@@ -9,6 +9,7 @@
     "server": "json-server --watch db.json"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "tailwindcss": "^1.7.6",
     "vue": "^2.6.11",

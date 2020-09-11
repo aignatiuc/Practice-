@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar color="white" dense>
+  <v-app-bar color="white" dense class="z-10">
     <v-dropdown />
     <img
       :src="require('@/assets/images/logo.svg')"

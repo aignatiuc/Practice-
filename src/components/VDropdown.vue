@@ -1,5 +1,5 @@
 <template>
-  <div class="relative inline-block text-left">
+  <div class="relative bg-right" v-click-outside="close">
     <v-app-bar-nav-icon @click="toogleDropdown"></v-app-bar-nav-icon>
     <div
       v-show="open"
@@ -20,39 +20,34 @@
         class="block px-4 py-1 text-sm leading-5 text-gray-20 hover:text-black focus:outline-none focus:bg-gray-100 focus:text-gray-900"
         role="menuitem"
       >
-        <v-icon small>mdi-earth</v-icon>
-        Stack Overflow
+        <v-icon small>mdi-earth</v-icon>Stack Overflow
       </router-link>
       <router-link
         to="/tags"
         class="block py-1 text-sm leading-5 px-11 text-gray-20 hover:text-black focus:outline-none focus:bg-gray-100 focus:text-gray-900"
         role="menuitem"
+        >Tags</router-link
       >
-        Tags
-      </router-link>
       <router-link
         to="/users"
         class="block py-1 text-sm leading-5 px-11 text-gray-20 hover:text-black focus:outline-none focus:bg-gray-100 focus:text-gray-900"
         role="menuitem"
+        >Users</router-link
       >
-        Users
-      </router-link>
       <p class="mt-4 mb-2 ml-2 text-xs uppercase fc-light">Find a job</p>
 
       <router-link
         to="/"
         class="block py-1 text-sm leading-5 px-11 text-gray-20 hover:text-black focus:outline-none focus:bg-gray-100 focus:text-gray-900"
         role="menuitem"
+        >Jobs</router-link
       >
-        Jobs
-      </router-link>
       <router-link
         to="/"
         class="block py-1 text-sm leading-5 px-11 text-gray-20 hover:text-black focus:outline-none focus:bg-gray-100 focus:text-gray-900"
         role="menuitem"
+        >Companies</router-link
       >
-        Companies
-      </router-link>
 
       <p class="mt-4 mb-2 ml-2 text-xs uppercase fc-light">TEAMS</p>
       <router-link
@@ -65,8 +60,8 @@
         class="block px-4 py-1 text-sm leading-5 text-gray-20 hover:text-black focus:outline-none focus:bg-gray-100 focus:text-gray-900"
         role="menuitem"
       >
-        <v-icon small color="orange darken-2">mdi-briefcase</v-icon>
-        Free 30 Day Trial
+        <v-icon small color="orange darken-2">mdi-briefcase</v-icon>Free 30 Day
+        Trial
       </router-link>
     </div>
   </div>
@@ -80,6 +75,9 @@ export default {
   methods: {
     toogleDropdown() {
       this.open = !this.open;
+    },
+    close() {
+      this.open = false;
     },
   },
 };

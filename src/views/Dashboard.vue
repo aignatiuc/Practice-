@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <div class="top-bar"></div>
+  <div class="relative h-full">
+    <div class="w-full bg-orange-400 top-bar h-px3"></div>
     <v-header />
-    <v-main>
+    <v-main class="z-0">
       <router-view />
     </v-main>
   </div>
@@ -16,11 +16,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.top-bar {
-  width: 100%;
-  height: 2px;
-  background: var(--orange);
-}
-</style>
