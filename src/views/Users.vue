@@ -42,11 +42,7 @@ export default {
       this.loading = true;
 
       try {
-        const { data } = await getUsers({
-          params: {
-            limit: 20,
-          },
-        });
+        const { data } = await getUsers();
         this.users = data;
       } catch (error) {
         console.log(error);
