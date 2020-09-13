@@ -1,20 +1,18 @@
 <template>
   <v-app-bar color="white" dense class="z-10">
     <v-dropdown />
-    <img
-      :src="require('@/assets/images/logo.svg')"
-      class="object-contain w-40"
-    />
-
-    <v-chip pill color="transparent" class="text" to="/about">
+    <router-link to="/">
+      <img :src="require('@/assets/images/logo.svg')" class="object-contain w-40" />
+    </router-link>
+    <v-chip pill color="transparent" class="p-4 font-sans text-xs capitalize" to="/about">
       <a>About</a>
     </v-chip>
 
-    <v-chip pill color="transparent" class="text">
+    <v-chip pill color="transparent" class="p-4 font-sans text-xs capitalize">
       <a>Products</a>
     </v-chip>
 
-    <v-chip pill color="transparent" class="text">
+    <v-chip pill color="transparent" class="p-4 font-sans text-xs capitalize">
       <a>For Teams</a>
     </v-chip>
 
@@ -29,8 +27,8 @@
       prepend-inner-icon="mdi-magnify"
     ></v-text-field>
 
-    <v-btn small class="mr-1 btn-in text" outlined>Log in</v-btn>
-    <v-btn small class="btn-up white--text text" outlined>Sign up</v-btn>
+    <v-btn small class="mr-1 font-sans text-xs capitalize btn-in" outlined>Log in</v-btn>
+    <v-btn small class="font-sans text-xs capitalize btn-up white--text" outlined>Sign up</v-btn>
   </v-app-bar>
 </template>
 
@@ -56,10 +54,5 @@ a {
 .btn-up {
   background-color: var(--blue);
   color: white;
-}
-.text {
-  text-transform: capitalize;
-  font-family: 13px Arial, Helvetica Neue, Helvetica, sans-serif;
-  padding: 6px 16px;
 }
 </style>

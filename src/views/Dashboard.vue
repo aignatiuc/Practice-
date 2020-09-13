@@ -1,6 +1,6 @@
 <template>
   <div class="relative h-full">
-    <div class="w-full bg-orange-400 top-bar h-px3"></div>
+    <div class="w-full bg-orange-10 top-bar"></div>
     <v-header />
     <v-main class="z-0">
       <router-view />
@@ -16,3 +16,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.top-bar {
+  height: 3px;
+}
+</style>

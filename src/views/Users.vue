@@ -1,18 +1,31 @@
 <template>
   <div>
-    <div v-if="loading">
-      Loading
-    </div>
+    <div v-if="loading">Loading</div>
+    <div v-else class="container flex flex-wrap mx-auto">
+      <div class="text-3xl">
+        Users
+        <v-text-field
+          class="flex-1 ml-4 mr-4"
+          outlined
+          dense
+          solo
+          flat
+          hide-details
+          label="Filter by user"
+          prepend-inner-icon="mdi-magnify"
+        ></v-text-field>
+      </div>
 
-    <div v-else class="container flex flex-wrap mx-auto md:px-24">
-      <v-user
-        class="w-full p-2 mb-4 sm:w-1/2 md:w-1/3 lg:w-1/4"
-        v-for="user in paginatedUsers"
-        :key="user.id"
-        :user="user"
-      />
+      <div class="container flex flex-wrap mx-auto md:px-24">
+        <v-user
+          class="w-full p-2 mb-4 sm:w-1/2 md:w-1/3 lg:w-1/4"
+          v-for="user in paginatedUsers"
+          :key="user.id"
+          :user="user"
+        />
+      </div>
+      <button @click="getMoreUsers">Get more</button>
     </div>
-    <button @click="getMoreUsers">Get more</button>
   </div>
 </template>
 
@@ -30,7 +43,7 @@ export default {
   data: () => ({
     users: null,
     loading: true,
-    limit: 20,
+    limit: 36,
   }),
   computed: {
     paginatedUsers() {
@@ -50,7 +63,7 @@ export default {
       this.loading = false;
     },
     getMoreUsers() {
-      this.limit += 20;
+      this.limit += 36;
     },
   },
 };
