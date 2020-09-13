@@ -5,6 +5,7 @@
       <div class="text-3xl">
         Users
         <v-text-field
+          v-model="searching"
           class="flex-1 ml-4 mr-4"
           outlined
           dense
@@ -19,7 +20,7 @@
       <div class="container flex flex-wrap mx-auto md:px-24">
         <v-user
           class="w-full p-2 mb-4 sm:w-1/2 md:w-1/3 lg:w-1/4"
-          v-for="user in paginatedUsers"
+          v-for="user in filteredUsers"
           :key="user.id"
           :user="user"
         />
@@ -44,9 +45,15 @@ export default {
     users: null,
     loading: true,
     limit: 36,
+    searching: "",
   }),
   computed: {
-    paginatedUsers() {
+    filteredUsers() {
+      if (this.searching) {
+        const filter = (user) => user.display_name.includes(this.searching);
+
+        return this.users.filter(filter).slice(0, this.limit);
+      }
       return this.users.slice(0, this.limit);
     },
   },

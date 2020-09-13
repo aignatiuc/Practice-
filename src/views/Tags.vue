@@ -4,11 +4,16 @@
     <div v-else class="container flex flex-wrap mx-auto">
       <div class="text-3xl">
         Tags
-        <p
-          class="mt-2 text-base"
-        >A tag is a keyword or label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question.</p>
-        <router-link class="text-base" to="/">Show all tag synonyms</router-link>
+        <p class="mt-2 text-base">
+          A tag is a keyword or label that categorizes your question with other,
+          similar questions. Using the right tags makes it easier for others to
+          find and answer your question.
+        </p>
+        <router-link class="text-base" to="/"
+          >Show all tag synonyms</router-link
+        >
         <v-text-field
+          v-model="searching"
           class="flex-1"
           outlined
           dense
@@ -20,8 +25,10 @@
         ></v-text-field>
       </div>
 
-      <div class="container grid px-0 mr-4 lg:grid-cols-4 md:px-24 sm:grid-cols-2 md:grid-cols-3">
-        <v-tags class="mb-4 mr-2" v-for="tag in paginatedTags" :key="tag.count" :tag="tag" />
+      <div
+        class="container grid gap-4 px-0 lg:grid-cols-4 md:px-24 sm:grid-cols-1 md:grid-cols-2"
+      >
+        <v-tag v-for="tag in filteredTags" :key="tag.count" :tag="tag" />
       </div>
       <button @click="getMoreTags">Get more</button>
     </div>
@@ -30,11 +37,11 @@
 
 <script>
 import { getTags } from "../api/tags";
-import VTags from "../components/VTags.vue";
+import VTag from "../components/VTag.vue";
 
 export default {
   components: {
-    VTags,
+    VTag,
   },
   mounted() {
     this.fetchTags();
@@ -43,9 +50,15 @@ export default {
     tags: null,
     loading: true,
     limit: 36,
+    searching: "",
   }),
   computed: {
-    paginatedTags() {
+    filteredTags() {
+      if (this.searching) {
+        const filter = (tag) => tag.name.includes(this.searching);
+
+        return this.tags.filter(filter).slice(0, this.limit);
+      }
       return this.tags.slice(0, this.limit);
     },
   },
