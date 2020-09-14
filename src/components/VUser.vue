@@ -3,7 +3,7 @@
     <div>
       <v-img class="w-12" :src="user.profile_image" />
     </div>
-    <div class="ml-2">
+    <div class="ml-2 text-xs">
       <router-link
         :to="
           `/users/${user.id}/${user.display_name
@@ -13,10 +13,10 @@
         class="text-sm"
         >{{ user.display_name }}</router-link
       >
-      <p class="mb-1 text-xs text-gray-600 ">
+      <p class="mb-1 text-xs text-gray-100 ">
         {{ user.location }}
       </p>
-      <p class="text-xs font-bold text-gray-600">
+      <p class="text-xs font-bold text-gray-100">
         {{ user.reputation }}
       </p>
     </div>

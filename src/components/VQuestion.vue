@@ -1,8 +1,8 @@
 <template>
   <div
-    class="grid grid-flow-col grid-rows-3 gap-4 pt-2 mt-2 border-b border-gray-10"
+    class="grid grid-flow-col grid-rows-3 gap-4 pt-2 mt-2 border-b border-gray-100"
   >
-    <div class="row-span-3 m-3 text-xl text-center text-gray-20">
+    <div class="row-span-3 m-3 text-xl text-center text-gray-200">
       {{ question.score }}
       <p class="text-xxs">votes</p>
       {{ question.answer_count }}
@@ -25,7 +25,7 @@
       <div class="flex justify-between col-span-1 row-span-2">
         <div>
           <p
-            class="inline-block p-1 mr-2 text-sm leading-none rounded text-blue-20 bg-gray-40"
+            class="inline-block p-1 mr-2 text-sm leading-none text-blue-200 bg-gray-400 rounded"
             v-for="tag in question.tags"
             :key="tag"
           >
@@ -34,7 +34,7 @@
         </div>
         <div class="block w-48">
           <div class="flex flex-col">
-            <p>{{ timeAgo }}</p>
+            <p>{{ timeAgo }} ago</p>
             <div class="flex ">
               <img class="w-12 h-12 mr-4" :src="question.owner.profile_image" />
               <div>
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import moment from "moment";
+import dayjs from "dayjs";
 
 export default {
   props: {
@@ -66,7 +66,9 @@ export default {
       return this.question.body.toString().substring(0, 130) + "..";
     },
     timeAgo() {
-      return moment.unix(this.question.creation_date).fromNow();
+      var relativeTime = require("dayjs/plugin/relativeTime");
+      dayjs.extend(relativeTime);
+      return dayjs.unix(this.question.creation_date).fromNow(true);
     },
   },
 };

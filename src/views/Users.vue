@@ -6,7 +6,7 @@
         Users
         <v-text-field
           v-model="searching"
-          class="flex-1 ml-4 mr-4"
+          class="flex-1 mt-4"
           outlined
           dense
           solo
@@ -17,13 +17,10 @@
         ></v-text-field>
       </div>
 
-      <div class="container flex flex-wrap mx-auto md:px-24">
-        <v-user
-          class="w-full p-2 mb-4 sm:w-1/2 md:w-1/3 lg:w-1/4"
-          v-for="user in filteredUsers"
-          :key="user.id"
-          :user="user"
-        />
+      <div
+        class="container grid gap-4 px-0 mt-6 lg:grid-cols-4 md:px-24 sm:grid-cols-1 md:grid-cols-2"
+      >
+        <v-user v-for="user in filteredUsers" :key="user.id" :user="user" />
       </div>
       <button @click="getMoreUsers">Get more</button>
     </div>
