@@ -11,14 +11,9 @@
             .replace(/ /, '-')}`
         "
         class="text-sm"
-        >{{ user.display_name }}</router-link
-      >
-      <p class="mb-1 text-xs text-gray-100 ">
-        {{ user.location }}
-      </p>
-      <p class="text-xs font-bold text-gray-100">
-        {{ user.reputation }}
-      </p>
+      >{{ user.display_name }}</router-link>
+      <p class="mb-1 text-xs text-gray-200">{{ user.location }}</p>
+      <p class="text-xs font-bold text-gray-200">{{ user.reputation }}</p>
     </div>
   </div>
 </template>

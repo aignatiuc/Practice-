@@ -9,9 +9,7 @@
           similar questions. Using the right tags makes it easier for others to
           find and answer your question.
         </p>
-        <router-link class="text-base" to="/"
-          >Show all tag synonyms</router-link
-        >
+        <router-link class="text-base" to="/">Show all tag synonyms</router-link>
         <v-text-field
           v-model="searching"
           class="flex-1"
@@ -25,9 +23,7 @@
         ></v-text-field>
       </div>
 
-      <div
-        class="container grid gap-4 px-0 lg:grid-cols-4 md:px-24 sm:grid-cols-1 md:grid-cols-2"
-      >
+      <div class="container grid gap-4 px-0 lg:grid-cols-4 md:px-24 sm:grid-cols-1 md:grid-cols-2">
         <v-tag v-for="tag in filteredTags" :key="tag.count" :tag="tag" />
       </div>
       <button @click="getMoreTags">Get more</button>
@@ -36,7 +32,7 @@
 </template>
 
 <script>
-import { getTags } from "../api/tags";
+import { mapActions, mapState } from "vuex";
 import VTag from "../components/VTag.vue";
 
 export default {
@@ -45,35 +41,27 @@ export default {
   },
   mounted() {
     this.fetchTags();
+    this.loading = false;
   },
   data: () => ({
-    tags: null,
     loading: true,
     limit: 36,
     searching: "",
   }),
   computed: {
+    ...mapState("tags", ["tagsData"]),
     filteredTags() {
       if (this.searching) {
         const filter = (tag) => tag.name.includes(this.searching);
 
-        return this.tags.filter(filter).slice(0, this.limit);
+        return this.tagsData.filter(filter).slice(0, this.limit);
       }
-      return this.tags.slice(0, this.limit);
+      return this.tagsData.slice(0, this.limit);
     },
   },
   methods: {
-    async fetchTags() {
-      this.loading = true;
+    ...mapActions("tags", ["fetchTags"]),
 
-      try {
-        const { data } = await getTags();
-        this.tags = data;
-      } catch (error) {
-        console.log(error);
-      }
-      this.loading = false;
-    },
     getMoreTags() {
       this.limit += 36;
     },

@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="grid grid-flow-col grid-rows-3 gap-4 pt-2 mt-2 border-b border-gray-100"
-  >
+  <div class="grid grid-flow-col grid-rows-3 gap-4 pt-2 mt-2 border-b border-gray-100">
     <div class="row-span-3 m-3 text-xl text-center text-gray-200">
       {{ question.score }}
       <p class="text-xxs">votes</p>
@@ -13,14 +11,13 @@
     <div class="col-span-2 row-span-2 text-lg">
       <router-link
         :to="
-          `/quetions/${question.id}/${question.title
+          `/questions/${question.id}/${question.title
             .toLowerCase()
             .split(' ')
             .join('-')
             .slice(0, 70)}`
         "
-        >{{ question.title }}</router-link
-      >
+      >{{ question.title }}</router-link>
       <p class="pt-2" v-html="filterQuestionBody"></p>
       <div class="flex justify-between col-span-1 row-span-2">
         <div>
@@ -28,20 +25,20 @@
             class="inline-block p-1 mr-2 text-sm leading-none text-blue-200 bg-gray-400 rounded"
             v-for="tag in question.tags"
             :key="tag"
-          >
-            {{ tag }}
-          </p>
+          >{{ tag }}</p>
         </div>
         <div class="block w-48">
-          <div class="flex flex-col">
-            <p>{{ timeAgo }} ago</p>
-            <div class="flex ">
+          <div class="flex flex-col text-sm">
+            <p class="text-gray-300">{{ timeAgo }} ago</p>
+            <div class="flex">
               <img class="w-12 h-12 mr-4" :src="question.owner.profile_image" />
-              <div>
-                <router-link to="/">{{
+              <div class="mt-1">
+                <router-link to="/">
+                  {{
                   question.owner.display_name
-                }}</router-link>
-                <p>{{ question.owner.reputation }}</p>
+                  }}
+                </router-link>
+                <p class="font-bold text-gray-300">{{ question.owner.reputation }}</p>
               </div>
             </div>
           </div>
