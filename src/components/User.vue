@@ -1,7 +1,10 @@
 <template>
   <div class="flex justify-start max-w-xs">
     <div>
-      <v-img class="w-12" :src="user.profile_image" />
+      <img 
+        class="w-12" 
+        :src="user.profile_image" 
+      >
     </div>
     <div class="ml-2 text-xs">
       <router-link
@@ -11,9 +14,15 @@
             .replace(/ /, '-')}`
         "
         class="text-sm"
-      >{{ user.display_name }}</router-link>
-      <p class="mb-1 text-xs text-gray-200">{{ user.location }}</p>
-      <p class="text-xs font-bold text-gray-200">{{ user.reputation }}</p>
+      >
+        {{ user.display_name }}
+      </router-link>
+      <p class="mb-1 text-xs text-gray-200">
+        {{ user.location }}
+      </p>
+      <p class="text-xs font-bold text-gray-200">
+        {{ user.reputation }}
+      </p>
     </div>
   </div>
 </template>

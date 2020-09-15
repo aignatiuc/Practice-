@@ -12,7 +12,9 @@
       earum unde.
     </p>
     <div class="grid grid-flow-col">
-      <p class="text-xs text-gray-300">{{ tag.count }} questions</p>
+      <p class="text-xs text-gray-300">
+        {{ tag.count }} questions
+      </p>
       <p class="text-xs text-right text-gray-300">
         {{ tag.count }} asked today, {{ tag.count }} this week
       </p>

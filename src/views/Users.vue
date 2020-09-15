@@ -1,7 +1,12 @@
 <template>
   <div>
-    <div v-if="loading">Loading</div>
-    <div v-else class="container flex flex-wrap mx-auto">
+    <div v-if="loading">
+      Loading
+    </div>
+    <div 
+      v-else 
+      class="container flex flex-wrap mx-auto"
+    >
       <div class="text-3xl">
         Users
         <v-text-field
@@ -14,29 +19,32 @@
           hide-details
           label="Filter by user"
           prepend-inner-icon="mdi-magnify"
-        ></v-text-field>
+        />
       </div>
 
       <div
         class="container grid gap-4 px-0 mt-6 lg:grid-cols-4 md:px-24 sm:grid-cols-1 md:grid-cols-2"
       >
-        <v-user v-for="user in filteredUsers" :key="user.id" :user="user" />
+        <v-user 
+          v-for="user in filteredUsers" 
+          :key="user.id"
+          :user="user" 
+        />
       </div>
-      <button @click="getMoreUsers">Get more</button>
+      <button @click="getMoreUsers">
+        Get more
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-import { getUsers } from "../api/users";
-import VUser from "../components/VUser.vue";
+import { getUsers } from "@/api/users";
+import VUser from "@/components/User.vue";
 
 export default {
   components: {
     VUser,
-  },
-  mounted() {
-    this.fetchUsers();
   },
   data: () => ({
     users: null,
@@ -53,6 +61,9 @@ export default {
       }
       return this.users.slice(0, this.limit);
     },
+  },
+  created() {
+    this.fetchUsers();
   },
   methods: {
     async fetchUsers() {

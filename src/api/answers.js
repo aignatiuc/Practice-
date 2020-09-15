@@ -1,4 +1,4 @@
-import { Axios } from "./api";
-import { apiEndpoints } from "../constants/apiEndpoints";
+import { apiClient } from "./api";
+import { apiEndpoints } from "@/constants/apiEndpoints";
 
-export const getAnswers = (config) => Axios.get(apiEndpoints.ANSWERS, config);
+export const getAnswers = (config) => apiClient.get(apiEndpoints.ANSWERS, config);

@@ -1,12 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import NotFound from "@/views/NotFound";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    component: () => import("../views/Dashboard.vue"),
+    component: () => import('../views/Dashboard.vue'),
     children: [
       {
         path: "",
@@ -19,30 +20,31 @@ const routes = [
         children: [
           {
             path: "/",
-            name: "Home",
-            component: () => import("../views/Home.vue"),
+            name: "home",
+            component: () => import('../views/Home.vue'),
           },
           {
             path: "/tags",
-            name: "Tags",
-            component: () => import("../views/Tags.vue"),
+            name: "tags.list",
+            component: () => import(/* webpackChunkName: "additional" */ '../views/Tags.vue'),
           },
           {
             path: "/users",
-            name: "Users",
-            component: () => import("../views/Users.vue"),
+            name: "users.list",
+            component: () => import(/* webpackChunkName: "additional" */ '../views/Users.vue'),
           },
           {
             path: "/questions",
-            component: () => import("../views/Questions.vue"),
+            component: () => import(/* webpackChunkName: "additional" */ '../views/Questions.vue'),
             children: [
               {
                 path: "/",
-                component: () => import("../views/questions/index.vue"),
+                name: "questions.list",
+                component: () => import(/* webpackChunkName: "additional" */ '../views/questions/List.vue'),
               },
               {
-                path: "/questions/:id/:slug",
-                component: () => import("../views/questions/id.vue"),
+                path: "/questions/:id(\\d+)/:slug",
+                component: () => import(/* webpackChunkName: "additional" */ '../views/questions/View.vue'),
               },
             ],
           },
@@ -52,8 +54,12 @@ const routes = [
   },
   {
     path: "/about",
-    name: "About",
-    component: () => import("../views/About.vue"),
+    name: "about",
+    component: () => import(/* webpackChunkName: "additional" */ '../views/About.vue'),
+  },
+  {
+    path: "*",
+    component: NotFound,
   },
 ];
 

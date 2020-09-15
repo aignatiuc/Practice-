@@ -1,4 +1,4 @@
-import { getTags } from "../../api/tags";
+import { getTags } from "@/api/tags";
 
 export const tags = {
   namespaced: true,
