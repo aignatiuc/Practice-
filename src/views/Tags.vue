@@ -72,9 +72,11 @@ export default {
       return this.tagsData.slice(0, this.limit);
     },
   },
+  mounted() {
+    this.loading = false;
+  },
   created() {
     this.fetchTags();
-    this.loading = false;
   },
   methods: {
     ...mapActions("tags", ["fetchTags"]),

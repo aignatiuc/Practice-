@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import VHeader from "@/components/Header.vue";
+import VHeader from "@/components/dashboard/Header.vue";
 
 export default {
   components: {
