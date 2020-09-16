@@ -50,14 +50,14 @@
     />
     <v-btn 
       small 
-      class="mr-1 font-sans text-xs capitalize btn-in"
+      class="mr-1 font-sans text-xs text-blue-200 capitalize bg-gray-400"
       outlined
     >
       Log in
     </v-btn>
     <v-btn 
       small 
-      class="font-sans text-xs capitalize btn-up white--text"
+      class="font-sans text-xs capitalize bg-blue-100 white--text"
       outlined
     >
       Sign up
@@ -78,14 +78,5 @@ export default {
 <style scoped>
 a {
   color: var(--gray) !important;
-}
-
-.btn-in {
-  color: #39739d !important;
-  background-color: #e1ecf4;
-}
-.btn-up {
-  background-color: var(--blue);
-  color: white;
 }
 </style>
