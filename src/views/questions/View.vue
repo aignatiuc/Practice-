@@ -1,22 +1,13 @@
 <template>
   <div>
-    <div v-if="loading">
-      Loading
-    </div>
-    <div 
-      v-else 
-      class="container flex flex-wrap p-8 mx-auto"
-    >
-      <v-question           
-        :question="question"
-      />
+    <div v-if="loading">Loading</div>
+
+    <div v-else class="container flex flex-wrap p-8 mx-auto">
+      <v-question :question="question" />
+
       <div class="text-2xl">
-        {{ question.answer_count }} Answers 
-        <v-answer 
-          v-for="answer in answers" 
-          :key="answer.id"
-          :answer="answer"
-        />
+        {{ question.answer_count }} Answers
+        <v-answer v-for="answer in answers" :key="answer.id" :answer="answer" />
       </div>
     </div>
   </div>
@@ -25,11 +16,11 @@
 <script>
 import { getQuestions } from "@/api/questions";
 import { getAnswers } from "@/api/answers";
-import VQuestion from "@/components/answered-question/Question.vue"
-import VAnswer from "@/components/answered-question/Answer.vue"
+import VQuestion from "@/components/answered-question/Question.vue";
+import VAnswer from "@/components/answered-question/Answer.vue";
 
 export default {
-    components: {
+  components: {
     VQuestion,
     VAnswer,
   },
@@ -38,12 +29,10 @@ export default {
     loading: true,
     answers: [],
   }),
-  mounted() {
+  async created() {
+    await this.fetchQuestion();
+    await this.fetchAnswers();
     this.loading = false;
-  },
-  created() {
-    this.fetchQuestion();
-    this.fetchAnswers();
   },
   methods: {
     async fetchQuestion() {

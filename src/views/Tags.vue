@@ -1,12 +1,8 @@
 <template>
   <div class="px-4">
-    <div v-if="loading">
-      Loading
-    </div>
-    <div 
-      v-else 
-      class="container flex flex-wrap mx-auto"
-    >
+    <div v-if="loading">Loading</div>
+
+    <div v-else class="container flex flex-wrap mx-auto">
       <div class="text-3xl">
         Tags
         <p class="mt-2 text-base">
@@ -14,12 +10,8 @@
           similar questions. Using the right tags makes it easier for others to
           find and answer your question.
         </p>
-        <router-link 
-          class="text-base" 
-          :to="{ name: 'home' }"
-        >
-          Show all tag synonyms
-        </router-link>
+
+        <router-link class="text-base" :to="{ name: 'home' }">Show all tag synonyms</router-link>
 
         <v-text-field
           v-model="searching"
@@ -35,15 +27,10 @@
       </div>
 
       <div class="container grid gap-4 px-0 lg:grid-cols-4 md:px-24 sm:grid-cols-1 md:grid-cols-2">
-        <v-tag 
-          v-for="tag in filteredTags" 
-          :key="tag.count" 
-          :tag="tag" 
-        />
+        <v-tag v-for="tag in filteredTags" :key="tag.count" :tag="tag" />
       </div>
-      <button @click="getMoreTags">
-        Get more
-      </button>
+
+      <button @click="getMoreTags">Get more</button>
     </div>
   </div>
 </template>
@@ -72,11 +59,9 @@ export default {
       return this.tagsData.slice(0, this.limit);
     },
   },
-  mounted() {
+  async created() {
+    await this.fetchTags();
     this.loading = false;
-  },
-  created() {
-    this.fetchTags();
   },
   methods: {
     ...mapActions("tags", ["fetchTags"]),

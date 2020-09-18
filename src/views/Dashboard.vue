@@ -1,9 +1,9 @@
 <template>
   <div class="relative h-full">
-    <div 
-      class="w-full bg-orange-100 top-bar"
-    />
+    <div class="w-full bg-orange-100 top-bar" />
+
     <v-header />
+
     <v-main class="z-0">
       <router-view />
     </v-main>

@@ -1,15 +1,9 @@
 <template>
   <div>
-    <div v-if="loading">
-      Loading
-    </div>
-    <div 
-      v-else 
-      class="container flex flex-wrap mx-auto"
-    >
-      <div class="text-3xl">
-        All Questions
-      </div>
+    <div v-if="loading">Loading</div>
+
+    <div v-else class="container flex flex-wrap mx-auto">
+      <div class="text-3xl">All Questions</div>
 
       <div class="container grid grid-cols-1 px-0 mr-4 md:px-24">
         <v-question
@@ -20,9 +14,7 @@
         />
       </div>
 
-      <button @click="getMoreQuestions">
-        Get more
-      </button>
+      <button @click="getMoreQuestions">Get more</button>
     </div>
   </div>
 </template>

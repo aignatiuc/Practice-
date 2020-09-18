@@ -1,12 +1,8 @@
 <template>
   <div>
-    <div v-if="loading">
-      Loading
-    </div>
-    <div 
-      v-else 
-      class="container flex flex-wrap mx-auto"
-    >
+    <div v-if="loading">Loading</div>
+
+    <div v-else class="container flex flex-wrap mx-auto">
       <div class="text-3xl">
         Users
         <v-text-field
@@ -25,15 +21,10 @@
       <div
         class="container grid gap-4 px-0 mt-6 lg:grid-cols-4 md:px-24 sm:grid-cols-1 md:grid-cols-2"
       >
-        <v-user 
-          v-for="user in filteredUsers" 
-          :key="user.id"
-          :user="user" 
-        />
+        <v-user v-for="user in filteredUsers" :key="user.id" :user="user" />
       </div>
-      <button @click="getMoreUsers">
-        Get more
-      </button>
+
+      <button @click="getMoreUsers">Get more</button>
     </div>
   </div>
 </template>
