@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-600">
-    <div class="flex flex-wrap justify-center max-w-6xl m-auto">
+    <div class="flex flex-wrap justify-center">
       <div class="pt-6 mr-4">
         <img
           src="https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico?v=ec617d715196"
@@ -9,7 +9,7 @@
       </div>
 
       <div class="w-48 p-5">
-        <div class="text-xs font-medium text-gray-700 uppercase">STACK OVERFLOW</div>
+        <div class="text-xs font-bold text-gray-700 uppercase">STACK OVERFLOW</div>
 
         <router-link class="block my-3 text-gray-300" :to="{name: 'home'}">
           <p class="text-xs text-gray-300">Services</p>
@@ -41,7 +41,7 @@
       </div>
 
       <div class="w-48 p-5">
-        <div class="text-xs font-medium text-gray-700 uppercase">PRODUCTS</div>
+        <div class="text-xs font-bold text-gray-700 uppercase">PRODUCTS</div>
 
         <router-link class="block my-3 text-gray-300" :to="{name: 'home'}">
           <p class="text-xs text-gray-300">Teams</p>
@@ -61,7 +61,7 @@
       </div>
 
       <div class="w-48 p-5">
-        <div class="text-xs font-medium text-gray-700 uppercase">COMPANY</div>
+        <div class="text-xs font-bold text-gray-700 uppercase">COMPANY</div>
 
         <router-link class="block my-3 text-gray-300" :to="{name: 'home'}">
           <p class="text-xs text-gray-300">About</p>
@@ -89,7 +89,7 @@
       </div>
 
       <div class="w-48 p-5">
-        <div class="text-xs font-medium text-gray-700 uppercase">STACK EXCHANGE NETWORK</div>
+        <div class="text-xs font-bold text-gray-700 uppercase">STACK EXCHANGE NETWORK</div>
 
         <router-link class="block my-3 text-gray-300" :to="{name: 'home'}">
           <p class="text-xs text-gray-300">Technology</p>
@@ -113,31 +113,30 @@
       </div>
     </div>
 
-    <div class="pt-2">
-      <div class="flex flex-col max-w-6xl px-3 pt-5 pb-5 m-auto text-sm text-gray-300 md:flex-row">
-        <div class="flex flex-row gap-2 mt-2 md:flex-auto md:flex-row-reverse">
-          <router-link class="block my-3" :to="{name: 'home'}">
-            <p class="text-xs text-gray-300">Blog</p>
-          </router-link>
+    <div class="flex flex-col max-w-6xl px-3 pt-5 pb-5 m-auto text-sm text-gray-300 md:flex-row">
+      <div class="flex flex-row gap-2 mt-2 md:flex-auto md:flex-row-reverse">
+        <router-link class="block my-3" :to="{name: 'home'}">
+          <p class="text-xs text-gray-300">Blog</p>
+        </router-link>
 
-          <router-link class="block my-3" :to="{name: 'home'}">
-            <p class="text-xs text-gray-300">Facebook</p>
-          </router-link>
+        <router-link class="block my-3" :to="{name: 'home'}">
+          <p class="text-xs text-gray-300">Facebook</p>
+        </router-link>
 
-          <router-link class="block my-3" :to="{name: 'home'}">
-            <p class="text-xs text-gray-300">Twitter</p>
-          </router-link>
+        <router-link class="block my-3" :to="{name: 'home'}">
+          <p class="text-xs text-gray-300">Twitter</p>
+        </router-link>
 
-          <router-link class="block my-3" :to="{name: 'home'}">
-            <p class="text-xs text-gray-300">LinkedIn</p>
-          </router-link>
+        <router-link class="block my-3" :to="{name: 'home'}">
+          <p class="text-xs text-gray-300">LinkedIn</p>
+        </router-link>
 
-          <router-link class="block my-3" :to="{name: 'home'}">
-            <p class="text-xs text-gray-300">Instagram</p>
-          </router-link>
-        </div>
-        <div class="mt-2">© Copyright 2020. All Rights Reserved.</div>
+        <router-link class="block my-3" :to="{name: 'home'}">
+          <p class="text-xs text-gray-300">Instagram</p>
+        </router-link>
       </div>
+      
+      <div class="mt-2">© Copyright 2020. All Rights Reserved.</div>
     </div>
   </div>
 </template>

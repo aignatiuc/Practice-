@@ -6,7 +6,7 @@
       <div class="text-3xl">All Questions</div>
 
       <div class="container grid grid-cols-1 px-0 mr-4 md:px-24">
-        <v-question
+        <question
           v-for="question in paginatedQuestions"
           :key="question.id"
           class="mb-4 mr-2"
@@ -21,11 +21,11 @@
 
 <script>
 import { getQuestions } from "@/api/questions";
-import VQuestion from "@/components/Question.vue";
+import Question from "@/components/Question.vue";
 
 export default {
   components: {
-    VQuestion,
+    Question,
   },
   data: () => ({
     questions: null,

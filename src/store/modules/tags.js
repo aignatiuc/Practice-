@@ -1,14 +1,15 @@
 import { getTags } from "@/api/tags";
-import { fetchTags } from "../mutation-types";
+import { FETCH_TAGS } from "../action-types";
+import { GET_TAGS } from "../getter-types";
+import { SET_TAGS } from "../mutation-types";
 
 export const tags = {
-  namespaced: true,
   state: () => ({
     tagsData: [],
     error: null,
   }),
   mutations: {
-    setTags(state, payload) {
+    [SET_TAGS](state, payload) {
       state.tagsData = payload;
     },
     setError(state, payload) {
@@ -16,17 +17,17 @@ export const tags = {
     },
   },
   actions: {
-    async [fetchTags]({ commit }) {
+    async [FETCH_TAGS]({ commit }) {
       try {
         const { data } = await getTags();
-        commit("setTags", data);
+        commit("SET_TAGS", data);
       } catch (error) {
         commit("setError", error);
       }
     },
   },
   getters: {
-    tags(state) {
+    [GET_TAGS](state) {
       return state.tagsData;
     },
     error(state) {

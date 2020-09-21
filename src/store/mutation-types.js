@@ -1,1 +1,1 @@
-export const fetchTags = "fetchTags";
+export const SET_TAGS = "SET_TAGS";

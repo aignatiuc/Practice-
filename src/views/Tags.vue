@@ -27,7 +27,7 @@
       </div>
 
       <div class="container grid gap-4 px-0 lg:grid-cols-4 md:px-24 sm:grid-cols-1 md:grid-cols-2">
-        <v-tag v-for="tag in filteredTags" :key="tag.count" :tag="tag" />
+        <tag v-for="tag in filteredTags" :key="tag.count" :tag="tag" />
       </div>
 
       <button @click="getMoreTags">Get more</button>
@@ -36,12 +36,14 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
-import VTag from "@/components/Tag.vue";
+import { mapActions, mapGetters } from "vuex";
+import Tag from "@/components/Tag.vue";
+import { FETCH_TAGS } from "@/store/action-types";
+import { GET_TAGS } from "@/store/getter-types";
 
 export default {
   components: {
-    VTag,
+    Tag,
   },
   data: () => ({
     loading: true,
@@ -49,14 +51,16 @@ export default {
     searching: "",
   }),
   computed: {
-    ...mapState("tags", ["tagsData"]),
+    ...mapGetters({
+      tags: GET_TAGS
+    }),
     filteredTags() {
       if (this.searching) {
         const filter = (tag) => tag.name.includes(this.searching);
 
-        return this.tagsData.filter(filter).slice(0, this.limit);
+        return this.tags.filter(filter).slice(0, this.limit);
       }
-      return this.tagsData.slice(0, this.limit);
+      return this.tags.slice(0, this.limit);
     },
   },
   async created() {
@@ -64,7 +68,9 @@ export default {
     this.loading = false;
   },
   methods: {
-    ...mapActions("tags", ["fetchTags"]),
+    ...mapActions({
+      fetchTags: FETCH_TAGS,
+    }),
 
     getMoreTags() {
       this.limit += 36;

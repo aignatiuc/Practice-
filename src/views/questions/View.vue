@@ -3,13 +3,13 @@
     <div v-if="loading">Loading</div>
 
     <div v-else class="container flex flex-wrap p-8 mx-auto">
-      <v-question :question="question" />
+      <question :question="question" />
 
       <div class="text-2xl">
         {{ question.answer_count }} Answers
-        <v-answer v-for="answer in answers" :key="answer.id" :answer="answer" />
+        <answer v-for="answer in answers" :key="answer.id" :answer="answer" />
 
-        <v-comment v-for="comment in comments" :key="comment.id" :comment="comment" />
+        <comment v-for="comment in comments" :key="comment.id" :comment="comment" />
       </div>
     </div>
   </div>
@@ -19,18 +19,24 @@
 import { getQuestions } from "@/api/questions";
 import { getAnswers } from "@/api/answers";
 import { getComments } from "@/api/comments";
-import VQuestion from "@/components/answered-question/Question.vue";
-import VAnswer from "@/components/answered-question/Answer.vue";
-import VComment from "@/components/answered-question/Comment.vue";
+import Question from "@/components/answered-question/Question.vue";
+import Answer from "@/components/answered-question/Answer.vue";
+import Comment from "@/components/answered-question/Comment.vue";
 
 export default {
   components: {
-    VQuestion,
-    VAnswer,
-    VComment,
+    Question,
+    Answer,
+    Comment,
+  },
+  props: {
+    id: {
+      type: [String, Number],
+      required: true,
+    },
   },
   data: () => ({
-    question: {},
+    question: null,
     loading: true,
     answers: [],
     comments: [],
@@ -46,7 +52,7 @@ export default {
       try {
         const { data } = await getQuestions({
           params: {
-            id: this.$route.params.id,
+            id: this.id,
           },
         });
         this.question = data[0];
@@ -58,7 +64,7 @@ export default {
       try {
         const { data } = await getAnswers({
           params: {
-            question_id: this.$route.params.id,
+            question_id: this.id,
           },
         });
         this.answers = data;
@@ -70,7 +76,7 @@ export default {
       try {
         const { data } = await getComments({
           params: {
-            question_id: this.$route.params.id,
+            question_id: this.id,
           },
         });
         this.comments = data;
