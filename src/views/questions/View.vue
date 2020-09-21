@@ -8,6 +8,8 @@
       <div class="text-2xl">
         {{ question.answer_count }} Answers
         <v-answer v-for="answer in answers" :key="answer.id" :answer="answer" />
+
+        <v-comment v-for="comment in comments" :key="comment.id" :comment="comment" />
       </div>
     </div>
   </div>
@@ -16,22 +18,27 @@
 <script>
 import { getQuestions } from "@/api/questions";
 import { getAnswers } from "@/api/answers";
+import { getComments } from "@/api/comments";
 import VQuestion from "@/components/answered-question/Question.vue";
 import VAnswer from "@/components/answered-question/Answer.vue";
+import VComment from "@/components/answered-question/Comment.vue";
 
 export default {
   components: {
     VQuestion,
     VAnswer,
+    VComment,
   },
   data: () => ({
     question: {},
     loading: true,
     answers: [],
+    comments: [],
   }),
   async created() {
     await this.fetchQuestion();
     await this.fetchAnswers();
+    await this.fetchComments();
     this.loading = false;
   },
   methods: {
@@ -47,7 +54,6 @@ export default {
         console.log(error);
       }
     },
-
     async fetchAnswers() {
       try {
         const { data } = await getAnswers({
@@ -56,6 +62,18 @@ export default {
           },
         });
         this.answers = data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async fetchComments() {
+      try {
+        const { data } = await getComments({
+          params: {
+            question_id: this.$route.params.id,
+          },
+        });
+        this.comments = data;
       } catch (error) {
         console.log(error);
       }

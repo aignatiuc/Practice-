@@ -26,7 +26,6 @@ const routes = [
         component: () =>
           import(/* webpackChunkName: "additional" */ "../views/Users.vue"),
       },
-
       {
         path: "/questions/",
         name: "questions.list",

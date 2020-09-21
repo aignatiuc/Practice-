@@ -1,4 +1,5 @@
 import { getTags } from "@/api/tags";
+import { fetchTags } from "../mutation-types";
 
 export const tags = {
   namespaced: true,
@@ -15,7 +16,7 @@ export const tags = {
     },
   },
   actions: {
-    async fetchTags({ commit }) {
+    async [fetchTags]({ commit }) {
       try {
         const { data } = await getTags();
         commit("setTags", data);
