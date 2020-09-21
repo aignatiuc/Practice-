@@ -7,14 +7,18 @@
     <v-main class="z-0">
       <router-view />
     </v-main>
+    <v-footer />
   </div>
 </template>
+
 <script>
 import VHeader from "@/components/dashboard/Header.vue";
+import VFooter from "@/components/dashboard/Footer.vue";
 
 export default {
   components: {
     VHeader,
+    VFooter,
   },
 };
 </script>
