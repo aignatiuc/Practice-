@@ -21,7 +21,7 @@
 
 <script>
 import { getQuestions } from "@/api/questions";
-import Question from "@/components/Question.vue";
+import Question from "@/components/Question";
 
 export default {
   components: {
@@ -33,15 +33,15 @@ export default {
     limit: 15,
   }),
   computed: {
-    paginatedQuestions() {
+    paginatedQuestions () {
       return this.question.slice(0, this.limit);
     },
   },
-  created() {
+  created () {
     this.fetchQuestion();
   },
   methods: {
-    async fetchQuestion() {
+    async fetchQuestion () {
       this.loading = true;
 
       try {
@@ -52,7 +52,7 @@ export default {
       }
       this.loading = false;
     },
-    getMoreQuestions() {
+    getMoreQuestions () {
       this.limit += 15;
     },
   },

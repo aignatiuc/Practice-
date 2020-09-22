@@ -75,10 +75,10 @@ export default {
     open: false,
   }),
   methods: {
-    toogleDropdown() {
+    toogleDropdown () {
       this.open = !this.open;
     },
-    close() {
+    close () {
       this.open = false;
     },
   },

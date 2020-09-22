@@ -34,5 +34,6 @@ module.exports = {
     "vue/html-closing-bracket-spacing": "off",
     "vue/singleline-html-element-content-newline": "off",
     "vue/html-self-closing": "off",
+    "space-before-function-paren": "error",
   },
 };

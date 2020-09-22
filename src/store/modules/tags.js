@@ -9,28 +9,28 @@ export const tags = {
     error: null,
   }),
   mutations: {
-    [SET_TAGS](state, payload) {
+    [SET_TAGS] (state, payload) {
       state.tagsData = payload;
     },
-    setError(state, payload) {
+    setError (state, payload) {
       state.error = payload;
     },
   },
   actions: {
-    async [FETCH_TAGS]({ commit }) {
+    async [FETCH_TAGS] ({ commit }) {
       try {
         const { data } = await getTags();
-        commit("SET_TAGS", data);
+        commit(SET_TAGS, data);
       } catch (error) {
         commit("setError", error);
       }
     },
   },
   getters: {
-    [GET_TAGS](state) {
+    [GET_TAGS] (state) {
       return state.tagsData;
     },
-    error(state) {
+    error (state) {
       return state.error;
     },
   },

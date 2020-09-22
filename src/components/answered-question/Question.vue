@@ -28,7 +28,7 @@
       </div>
 
       <div class="col-span-2 row-span-2 text-lg">
-        <!-- eslint-disable -->
+        <!-- eslint-disable-next-line vue/no-v-html -->
         <p class="pt-2 text-base" v-html="question.body" />
 
         <div class="flex justify-between col-span-1 row-span-2">
@@ -71,17 +71,17 @@ export default {
     },
   },
   computed: {
-    questionCreated() {
+    questionCreated () {
       var relativeTime = require("dayjs/plugin/relativeTime");
       dayjs.extend(relativeTime);
       return dayjs.unix(this.question.creation_date).fromNow(true);
     },
-    questionActive() {
+    questionActive () {
       var relativeTime = require("dayjs/plugin/relativeTime");
       dayjs.extend(relativeTime);
       return dayjs.unix(this.question.last_activity_date).fromNow(true);
     },
-    questionEdited() {
+    questionEdited () {
       return dayjs
         .unix(this.question.last_edit_date)
         .format("MMM DD YYYY HH:MM");

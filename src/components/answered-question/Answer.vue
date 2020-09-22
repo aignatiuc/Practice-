@@ -9,7 +9,7 @@
     </div>
 
     <div class="col-span-2 row-span-2 text-lg">
-      <!-- eslint-disable -->
+      <!-- eslint-disable-next-line vue/no-v-html -->
       <p class="pt-2 text-base" v-html="answer.body" />
       <div class="flex justify-between col-span-1 row-span-2">
         <div>
@@ -56,7 +56,7 @@ export default {
     },
   },
   computed: {
-    questionAnswered() {
+    questionAnswered () {
       return dayjs.unix(this.answer.creation_date).format("MMM DD YYYY HH:MM");
     },
   },

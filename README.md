@@ -9,7 +9,7 @@ yarn install
 ## Copy env file
 
 ```
-cp .env.example .env
+cp .env.dist .env
 ```
 
 ### Compiles and hot-reloads for development

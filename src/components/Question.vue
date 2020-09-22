@@ -10,8 +10,8 @@
     </div>
 
     <div class="col-span-2 row-span-2 text-lg">
-      <router-link :to="`/questions/${question.id}`">{{ question.title }}</router-link>
-      <!-- eslint-disable -->
+      <router-link :to="{ name: 'answered.question', params: { id: question.id}}">{{ question.title }}</router-link>
+      <!-- eslint-disable-next-line vue/no-v-html -->
       <p class="pt-2" v-html="filterQuestionBody" />
       <div class="flex justify-between col-span-1 row-span-2">
         <div>
@@ -52,10 +52,10 @@ export default {
     },
   },
   computed: {
-    filterQuestionBody() {
+    filterQuestionBody () {
       return this.question.body.substring(0, 130) + "..";
     },
-    timeAgo() {
+    timeAgo () {
       var relativeTime = require("dayjs/plugin/relativeTime");
       dayjs.extend(relativeTime);
       return dayjs.unix(this.question.creation_date).fromNow(true);

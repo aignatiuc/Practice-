@@ -6,11 +6,7 @@
 
     <div class="ml-2 text-xs">
       <router-link
-        :to="
-          `/users/${user.id}/${user.display_name
-            .toLowerCase()
-            .replace(/ /, '-')}`
-        "
+        :to="{ name: 'user.profile', params: { id: user.id}}"
         class="text-sm"
       >{{ user.display_name }}</router-link>
 

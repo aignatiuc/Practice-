@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import VDropdown from "@/components/dashboard/Dropdown.vue";
+import VDropdown from "@/components/dashboard/Dropdown";
 
 export default {
   components: {

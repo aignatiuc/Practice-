@@ -19,9 +19,9 @@
 import { getQuestions } from "@/api/questions";
 import { getAnswers } from "@/api/answers";
 import { getComments } from "@/api/comments";
-import Question from "@/components/answered-question/Question.vue";
-import Answer from "@/components/answered-question/Answer.vue";
-import Comment from "@/components/answered-question/Comment.vue";
+import Question from "@/components/answered-question/Question";
+import Answer from "@/components/answered-question/Answer";
+import Comment from "@/components/answered-question/Comment";
 
 export default {
   components: {
@@ -41,14 +41,12 @@ export default {
     answers: [],
     comments: [],
   }),
-  async created() {
-    await this.fetchQuestion();
-    await this.fetchAnswers();
-    await this.fetchComments();
+  async created () {
+    await Promise.all([this.fetchQuestion(), this.fetchAnswers(), this.fetchComments()])
     this.loading = false;
   },
   methods: {
-    async fetchQuestion() {
+    async fetchQuestion () {
       try {
         const { data } = await getQuestions({
           params: {
@@ -60,7 +58,7 @@ export default {
         console.log(error);
       }
     },
-    async fetchAnswers() {
+    async fetchAnswers () {
       try {
         const { data } = await getAnswers({
           params: {
@@ -72,7 +70,7 @@ export default {
         console.log(error);
       }
     },
-    async fetchComments() {
+    async fetchComments () {
       try {
         const { data } = await getComments({
           params: {

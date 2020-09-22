@@ -7,31 +7,38 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "",
-    component: () => import("../views/Dashboard.vue"),
+    component: () => import("../views/Dashboard"),
     children: [
       {
         path: "/",
         name: "home",
-        component: () => import("../views/Home.vue"),
+        component: () => import("../views/Home"),
       },
       {
         path: "/tags",
         name: "tags.list",
         component: () =>
-          import(/* webpackChunkName: "additional" */ "../views/Tags.vue"),
+          import(/* webpackChunkName: "additional" */ "../views/Tags"),
       },
       {
         path: "/users",
         name: "users.list",
         component: () =>
-          import(/* webpackChunkName: "additional" */ "../views/Users.vue"),
+          import(/* webpackChunkName: "additional" */ "../views/users/List"),
+      },
+      {
+        path: "/users/:id(\\d+)",
+        name: "user.profile",
+        props: true,
+        component: () =>
+          import(/* webpackChunkName: "additional" */ "../views/users/View"),
       },
       {
         path: "/questions/",
         name: "questions.list",
         component: () =>
           import(
-            /* webpackChunkName: "additional" */ "../views/questions/List.vue"
+            /* webpackChunkName: "additional" */ "../views/questions/List"
           ),
       },
       {
@@ -40,7 +47,7 @@ const routes = [
         props: true,
         component: () =>
           import(
-            /* webpackChunkName: "additional" */ "../views/questions/View.vue"
+            /* webpackChunkName: "additional" */ "../views/questions/View"
           ),
       },
     ],
@@ -49,7 +56,7 @@ const routes = [
     path: "/about",
     name: "about",
     component: () =>
-      import(/* webpackChunkName: "additional" */ "../views/About.vue"),
+      import(/* webpackChunkName: "additional" */ "../views/About"),
   },
   {
     path: "*",

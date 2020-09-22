@@ -37,7 +37,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import Tag from "@/components/Tag.vue";
+import Tag from "@/components/Tag";
 import { FETCH_TAGS } from "@/store/action-types";
 import { GET_TAGS } from "@/store/getter-types";
 
@@ -54,7 +54,7 @@ export default {
     ...mapGetters({
       tags: GET_TAGS
     }),
-    filteredTags() {
+    filteredTags () {
       if (this.searching) {
         const filter = (tag) => tag.name.includes(this.searching);
 
@@ -63,7 +63,7 @@ export default {
       return this.tags.slice(0, this.limit);
     },
   },
-  async created() {
+  async created () {
     await this.fetchTags();
     this.loading = false;
   },
@@ -72,7 +72,7 @@ export default {
       fetchTags: FETCH_TAGS,
     }),
 
-    getMoreTags() {
+    getMoreTags () {
       this.limit += 36;
     },
   },

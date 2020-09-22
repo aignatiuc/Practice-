@@ -31,7 +31,7 @@
 
 <script>
 import { getUsers } from "@/api/users";
-import User from "@/components/User.vue";
+import User from "@/components/User";
 
 export default {
   components: {
@@ -44,7 +44,7 @@ export default {
     searching: "",
   }),
   computed: {
-    filteredUsers() {
+    filteredUsers () {
       if (this.searching) {
         const filter = (user) => user.display_name.includes(this.searching);
 
@@ -53,11 +53,11 @@ export default {
       return this.users.slice(0, this.limit);
     },
   },
-  created() {
+  created () {
     this.fetchUsers();
   },
   methods: {
-    async fetchUsers() {
+    async fetchUsers () {
       this.loading = true;
 
       try {
@@ -68,7 +68,7 @@ export default {
       }
       this.loading = false;
     },
-    getMoreUsers() {
+    getMoreUsers () {
       this.limit += 36;
     },
   },
