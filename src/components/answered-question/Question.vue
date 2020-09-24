@@ -39,6 +39,7 @@
               class="inline-block p-1 mr-2 text-sm leading-none text-blue-200 bg-gray-400 rounded"
             >{{ tag }}</p>
           </div>
+          
           <div class="block w-48">
             <div class="flex flex-col text-sm">
               <p class="text-gray-300">edited {{ questionEdited }}</p>

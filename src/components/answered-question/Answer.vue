@@ -13,22 +13,22 @@
       <p class="pt-2 text-base" v-html="answer.body" />
       <div class="flex justify-between col-span-1 row-span-2">
         <div>
-          <p
-            class="inline-block p-1 mr-2 text-sm leading-none text-gray-300 bg-gray-100 rounded"
-          >share</p>
+          <p class="inline-block p-1 mr-2 text-sm leading-none text-gray-300 bg-gray-100 rounded">
+            share
+          </p>
 
-          <p
-            class="inline-block p-1 mr-2 text-sm leading-none text-gray-300 bg-gray-100 rounded"
-          >improve this answer</p>
+          <p class="inline-block p-1 mr-2 text-sm leading-none text-gray-300 bg-gray-100 rounded">
+            improve this answer
+          </p>
 
-          <p
-            class="inline-block p-1 mr-2 text-sm leading-none text-gray-300 bg-gray-100 rounded"
-          >follow</p>
+          <p class="inline-block p-1 mr-2 text-sm leading-none text-gray-300 bg-gray-100 rounded">
+            follow
+          </p>
         </div>
 
         <div class="block w-48">
           <div class="flex flex-col text-sm">
-            <p class="text-gray-300">answered {{ questionAnswered }}</p>
+            <p class="text-gray-300">answered {{ answeredAt }}</p>
             <div class="flex">
               <img class="w-12 h-12 mr-4" :src="answer.owner.profile_image" />
 
@@ -56,7 +56,7 @@ export default {
     },
   },
   computed: {
-    questionAnswered () {
+    answeredAt () {
       return dayjs.unix(this.answer.creation_date).format("MMM DD YYYY HH:MM");
     },
   },

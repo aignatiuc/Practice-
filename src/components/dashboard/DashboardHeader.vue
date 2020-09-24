@@ -5,7 +5,7 @@
     </v-dropdown>
 
     <router-link :to="{ name: 'home' }">
-      <img :src="require('@/assets/images/logo.svg')" class="object-contain w-40" />
+      <img src="@/assets/images/logo.svg" class="object-contain w-40" />
     </router-link>
 
     <v-chip

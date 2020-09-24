@@ -6,7 +6,7 @@
 
     <div class="ml-2 text-xs">
       <router-link
-        :to="{ name: 'user.profile', params: { id: user.id}}"
+        :to="{ name: 'users.view', params: { id: user.id }}"
         class="text-sm"
       >{{ user.display_name }}</router-link>
 

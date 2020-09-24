@@ -28,7 +28,7 @@ const routes = [
       },
       {
         path: "/users/:id(\\d+)",
-        name: "user.profile",
+        name: "users.view",
         props: true,
         component: () =>
           import(/* webpackChunkName: "additional" */ "../views/users/View"),
@@ -43,7 +43,7 @@ const routes = [
       },
       {
         path: "/questions/:id(\\d+)",
-        name: "answered.question",
+        name: "questions.view",
         props: true,
         component: () =>
           import(

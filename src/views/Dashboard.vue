@@ -2,24 +2,24 @@
   <div class="relative h-full">
     <div class="w-full bg-orange-100 top-bar" />
 
-    <v-header />
+    <dashboard-header />
 
     <v-main class="z-0">
       <router-view />
     </v-main>
 
-    <v-footer />
+    <dashboard-footer />
   </div>
 </template>
 
 <script>
-import VHeader from "@/components/dashboard/Header";
-import VFooter from "@/components/dashboard/Footer";
+import DashboardHeader from "@/components/dashboard/DashboardHeader";
+import DashboardFooter from "@/components/dashboard/DashboardFooter";
 
 export default {
   components: {
-    VHeader,
-    VFooter,
+    DashboardHeader,
+    DashboardFooter,
   },
 };
 </script>

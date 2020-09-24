@@ -71,7 +71,6 @@ export default {
     ...mapActions({
       fetchTags: FETCH_TAGS,
     }),
-
     getMoreTags () {
       this.limit += 36;
     },

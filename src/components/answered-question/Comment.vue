@@ -5,8 +5,10 @@
       <!-- eslint-disable-next-line vue/no-v-html -->
       <p v-html="comment.body" />
     </div>
+
     <div class="text-right">
       <a>- {{ comment.owner.display_name }}</a>
+      
       <p class="text-gray-300">{{ commentDate }}</p>
     </div>
   </div>

@@ -2,7 +2,7 @@
   <div
     class="object-contain w-full text-center bg-yellow-100 bg-center lg:bg-clip-content lg:mx-auto sm:pb-20 none:pb-20"
   >
-    <v-img :src="require('@/assets/images/home_background.svg')">
+    <v-img src="@/assets/images/home_background.svg">
       <p class="pt-32 text-4xl font-bold lg:text-5xl">
         We
         <span class="font-sans">&#60;3</span>
