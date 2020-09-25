@@ -5,7 +5,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ["eslint:recommended", "plugin:vue/recommended"],
+
   parserOptions: {
     ecmaVersion: 12,
     sourceType: "module",
@@ -27,13 +27,29 @@ module.exports = {
       },
     ],
   },
+
   plugins: ["vue"],
+
   rules: {
     "vue/multiline-html-element-content-newline": "off",
     "vue/max-attributes-per-line": "off",
     "vue/html-closing-bracket-spacing": "off",
     "vue/singleline-html-element-content-newline": "off",
     "vue/html-self-closing": "off",
-    "space-before-function-paren": "0",
+    "space-before-function-paren": 1,
   },
+
+  overrides: [
+    {
+      files: [
+        "**/__tests__/*.{j,t}s?(x)",
+        "**/tests/unit/**/*.spec.{j,t}s?(x)",
+      ],
+      env: {
+        jest: true,
+      },
+    },
+  ],
+
+  extends: ["eslint:recommended", "plugin:vue/recommended"],
 };

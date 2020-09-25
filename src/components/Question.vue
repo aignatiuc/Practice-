@@ -1,5 +1,7 @@
 <template>
-  <div class="grid grid-flow-col grid-rows-3 gap-4 pt-2 mt-2 border-b border-gray-100">
+  <div
+    class="grid grid-flow-col grid-rows-3 gap-4 pt-2 mt-2 border-b border-gray-100"
+  >
     <div class="row-span-3 m-3 text-xl text-center text-gray-200">
       {{ question.score }}
       <p class="text-xxs">votes</p>
@@ -19,7 +21,9 @@
             v-for="tag in question.tags"
             :key="tag"
             class="inline-block p-1 mr-2 text-sm leading-none text-blue-200 bg-gray-400 rounded"
-          >{{ tag }}</p>
+          >
+            {{ tag }}
+          </p>
         </div>
 
         <div class="block w-48">
@@ -30,8 +34,12 @@
               <img class="w-12 h-12 mr-4" :src="question.owner.profile_image" />
 
               <div class="mt-1">
-                <router-link :to="{ name: 'home' }">{{ question.owner.display_name }}</router-link>
-                <p class="font-bold text-gray-300">{{ question.owner.reputation }}</p>
+                <router-link :to="{ name: 'home' }">{{
+                  question.owner.display_name
+                }}</router-link>
+                <p class="font-bold text-gray-300">
+                  {{ question.owner.reputation }}
+                </p>
               </div>
             </div>
           </div>
@@ -43,7 +51,7 @@
 
 <script>
 import dayjs from "dayjs";
-import relativeTime from 'dayjs/plugin/relativeTime';
+import relativeTime from "dayjs/plugin/relativeTime";
 
 dayjs.extend(relativeTime);
 

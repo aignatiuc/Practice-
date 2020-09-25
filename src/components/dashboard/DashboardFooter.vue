@@ -135,7 +135,7 @@
           <p class="text-xs text-gray-300">Instagram</p>
         </router-link>
       </div>
-      
+
       <div class="mt-2">© Copyright 2020. All Rights Reserved.</div>
     </div>
   </div>
