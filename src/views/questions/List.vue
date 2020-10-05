@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="loading">Loading</div>
+    <spinner v-if="loading">Loading</spinner>
 
     <div v-else class="container flex flex-wrap mx-auto">
       <div class="text-3xl">All Questions</div>
@@ -22,10 +22,13 @@
 <script>
 import { getQuestions } from "@/api/questions";
 import Question from "@/components/Question";
+import Spinner from "@/components/dashboard/Spinner";
+
 
 export default {
   components: {
-    Question,
+		Question,
+		Spinner,
   },
   data: () => ({
     questions: null,

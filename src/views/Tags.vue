@@ -1,6 +1,6 @@
 <template>
   <div class="px-4">
-    <div v-if="loading">Loading</div>
+    <spinner v-if="loading">Loading</spinner>
 
     <div v-else class="container flex flex-wrap mx-auto">
       <div class="text-3xl">
@@ -37,13 +37,15 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import Tag from "@/components/Tag";
 import { FETCH_TAGS } from "@/store/action-types";
 import { GET_TAGS } from "@/store/getter-types";
+import Tag from "@/components/Tag";
+import Spinner from "@/components/dashboard/Spinner";
 
 export default {
   components: {
-    Tag,
+		Tag,
+		Spinner,
   },
   data: () => ({
     loading: true,

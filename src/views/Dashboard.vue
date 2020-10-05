@@ -1,10 +1,10 @@
 <template>
-  <div class="relative h-full">
+  <div class="relative flex flex-col h-full min-h-screen">
     <div class="w-full bg-orange-100 top-bar" />
 
     <dashboard-header />
 
-    <v-main class="z-0">
+    <v-main class="z-0 flex-grow">
       <router-view />
     </v-main>
 

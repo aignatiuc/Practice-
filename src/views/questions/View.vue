@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="loading">Loading</div>
+    <spinner v-if="loading">Loading</spinner>
 
     <div v-else class="container flex flex-wrap p-8 mx-auto">
       <question :question="question" />
@@ -22,12 +22,14 @@ import { getComments } from "@/api/comments";
 import Question from "@/components/answered-question/Question";
 import Answer from "@/components/answered-question/Answer";
 import Comment from "@/components/answered-question/Comment";
+import Spinner from "@/components/dashboard/Spinner";
 
 export default {
   components: {
     Question,
     Answer,
-    Comment,
+		Comment,
+		Spinner,
   },
   props: {
     id: {
